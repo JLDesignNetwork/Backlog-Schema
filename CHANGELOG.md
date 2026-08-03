@@ -8,16 +8,32 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.6.0-s (2026-08-03) - Stable Release
+
+**Public Alpha release applying Round 3 Red Team Audit fixes: Sub-Task Letter Parts (`TODO-01.1a` through `TODO-01.1z`), strict local document isolation, conditional `reason` requirement, and priority escalation rules.**
+
+#### Added
+- **Sub-Task Letter Parts (`TODO-01.1a`):** Codified sub-task letter parts (`TODO-01.1a` to `TODO-01.1z`) with a hard single-level cap. Prohibited sub-sub-task splitting; required creating new top-level tasks with `"relates_to"` when further breakdown is needed.
+- **Strict Local Document Isolation for `relates_to`:** Codified that todo items are strictly document-bound and can never reference external files or contain todo data for other files.
+- **Conditional `reason` Property:** Updated property type to Conditional (mandatory if `blocked` or `deprecated`; optional otherwise).
+- **Priority Escalation Rules:** Codified mutable priority rules allowing immediate escalation to `critical` or `high` when deep audits uncover critical flaws.
+
+---
+
+### 2608.5.0-s (2026-08-03) - Stable Release
+
+**Public Alpha release applying Round 2 Red Team Audit fixes: Mandatory `priority` property, `relates_to` relational linking key, parent completion on terminal child states, section heading resilience, and numeric ID parsing.**
+
+#### Added
+- **Mandatory `priority` Property:** Made `priority` a required property on all task objects.
+- **`relates_to` Relational Linking Key:** Added optional `"relates_to"` property referencing prior local task IDs.
+- **Immutable Completion Rule:** Formally prohibited re-opening `completed` tasks.
+
+---
+
 ### 2608.4.0-s (2026-08-03) - Stable Release
 
 **Public Alpha release applying Round 1 Red Team Audit fixes: Unblock Recovery Pathway, `reason` & `owner` properties, Sub-Task Dot Notation, and Trivial Fast-Track vs. Complex Audit rules.**
-
-#### Added
-- **Unblock Recovery Pathway:** Codified unblock recovery transitions allowing `blocked` tasks to resume their exact previous active state immediately upon blocker resolution.
-- **`reason` Property:** Added optional `"reason"` string metadata property to document root causes for `blocked` and `deprecated` tasks.
-- **`owner` Property:** Added optional `"owner"` string property to claim task ownership and prevent multi-agent execution collisions.
-- **Sub-Task Dot Notation (`TODO-01.1`):** Codified sub-task hierarchy branching for multi-issue audit findings, requiring child sub-task resolution before parent completion.
-- **Trivial Fast-Track vs. Complex Audit Rules:** Permitted trivial typo/formatting tasks to fast-track directly from `in-progress` to `completed`, while enforcing mandatory audit/review loops for structural changes.
 
 ---
 
@@ -25,26 +41,14 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 **Major Specification Update introducing the Colon-Delimited `[STATE]:[PHASE]` Syntax Standard.**
 
-#### Added
-- **Colon-Delimited `[STATE]:[PHASE]` Syntax:** Replaced hyphenated slugs with colon delimiters (`pending:review`, `in-progress:review`, `pending:audit`, `in-progress:audit`, `pending:refactor`, `in-progress:refactor`).
-- **Updated Validation Regular Expression:** Codified regex `^(pending|in-progress|pending:review|in-progress:review|pending:audit|in-progress:audit|pending:refactor|in-progress:refactor|completed|blocked|deprecated)$`.
-
 ---
 
 ### 2608.2.0-s (2026-08-03) - Stable Release
 
 **Major Release introducing the 11-State Task Matrix and Review vs. Audit phase distinction.**
 
-#### Added
-- **11-State Modular Task Matrix:** Formally codified `pending`, `in-progress`, `pending-review`, `in-progress-review`, `pending-audit`, `in-progress-audit`, `pending-refactor`, `in-progress-refactor`, `completed`, `blocked`, and `deprecated`.
-- **Review vs. Audit Phase Distinction:** `review` (surface presentation/flair) vs. `audit` (deep mechanical analysis & loopholes).
-
 ---
 
 ### 2608.1.0-s (2026-08-03) - Stable Release
 
 **Initial Stable Release of the official JLDN Todo Schema Specification.**
-
-#### Added
-- **Core Document-Bound Architecture:** Storing task lists inside Markdown JSON frontmatter (`todo` array).
-- **Task Object Schema Definition:** Specified `id`, `section`, `title`, `status`, and `details` fields.
