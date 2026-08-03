@@ -5,13 +5,13 @@ Welcome to the official specification repository for the **JLDN Todo Schema**.
 - **Master Specification File:** [todo-2608.md](./todo-2608.md)
 - **Standalone Changelog:** [CHANGELOG.md](./CHANGELOG.md)
 - **Author:** Jeff Langdon
-- **Version:** `2608.9.0-s`
+- **Version:** `2608.9.0-as`
 
 ## Overview
 
 The JLDN Todo Schema is a proprietary, version-bound task management protocol that embeds structured JSON task arrays directly into Markdown document frontmatter (`todo` array).
 
-### Key Features (v2608.9.0-s)
+### Key Features (v2608.9.0-as)
 
 * **Parent-Child Blocker Propagation:** Parent tasks immediately transition to `blocked` when any active child task locks.
 * **Strict Target Key Validation:** `child_of` and `relates_to` MUST reference valid, existing local task IDs.

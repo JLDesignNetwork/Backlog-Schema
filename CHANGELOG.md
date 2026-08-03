@@ -8,7 +8,7 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
-### 2608.9.0-s (2026-08-03) - Stable Release
+### 2608.9.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 5 Red Team Audit fixes: Parent-Child Blocker Propagation, Strict Target Existence Validation, Priority Validation Regex, and Pair Owner Formatting Standard.**
 
@@ -20,43 +20,43 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ---
 
-### 2608.8.0-s (2026-08-03) - Stable Release
+### 2608.8.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release integrating the `child_of` vertical ancestry key and decoupled `relates_to` horizontal association key.**
 
 ---
 
-### 2608.7.0-s (2026-08-03) - Stable Release
+### 2608.7.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 4 Red Team Audit fixes: Single-letter sub-task limit (`a`-`z`), primary key uniqueness enforcement, title/details quality thresholds, and DAG relational link rules.**
 
 ---
 
-### 2608.6.0-s (2026-08-03) - Stable Release
+### 2608.6.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 3 Red Team Audit fixes: Sub-Task Letter Parts (`TODO-01.1a`), strict local document isolation, conditional `reason` requirement, and priority escalation rules.**
 
 ---
 
-### 2608.5.0-s (2026-08-03) - Stable Release
+### 2608.5.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 2 Red Team Audit fixes: Mandatory `priority` property, `relates_to` relational linking key, parent completion on terminal child states, section heading resilience, and numeric ID parsing.**
 
 ---
 
-### 2608.4.0-s (2026-08-03) - Stable Release
+### 2608.4.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 1 Red Team Audit fixes: Unblock Recovery Pathway, `reason` & `owner` properties, Sub-Task Dot Notation, and Trivial Fast-Track vs. Complex Audit rules.**
 
 ---
 
-### 2608.3.0-s (2026-08-03) - Stable Release
+### 2608.3.0-as (2026-08-03) - Public Alpha Release
 
 **Major Specification Update introducing the Colon-Delimited `[STATE]:[PHASE]` Syntax Standard.**
 
 ---
 
-### 2608.2.0-s (2026-08-03) - Stable Release
+### 2608.2.0-as (2026-08-03) - Public Alpha Release
 
 **Major Release introducing the 11-State Task Matrix and Review vs. Audit phase distinction.**
 
