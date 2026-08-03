@@ -8,17 +8,25 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.3.0-s (2026-08-03) - Stable Release
+
+**Major Specification Update introducing the Colon-Delimited `[STATE]:[PHASE]` Syntax Standard.**
+
+#### Added
+- **Colon-Delimited `[STATE]:[PHASE]` Syntax:** Replaced hyphenated slugs with colon delimiters (`pending:review`, `in-progress:review`, `pending:audit`, `in-progress:audit`, `pending:refactor`, `in-progress:refactor`), eliminating double-hyphen ambiguities with `in-progress` and simplifying string splitting in tools.
+- **Updated Validation Regular Expression:** Codified regex `^(pending|in-progress|pending:review|in-progress:review|pending:audit|in-progress:audit|pending:refactor|in-progress:refactor|completed|blocked|deprecated)$`.
+
+---
+
 ### 2608.2.0-s (2026-08-03) - Stable Release
 
-**Major Release introducing the 11-State Task Matrix, Review vs. Audit phase distinction, and standard `[STATE]-[PHASE]` syntax.**
+**Major Release introducing the 11-State Task Matrix and Review vs. Audit phase distinction.**
 
 #### Added
 - **11-State Modular Task Matrix:** Formally codified `pending`, `in-progress`, `pending-review`, `in-progress-review`, `pending-audit`, `in-progress-audit`, `pending-refactor`, `in-progress-refactor`, `completed`, `blocked`, and `deprecated`.
 - **Review vs. Audit Phase Distinction:**
   - `review`: Surface-level inspection focusing on presentation, formatting, aesthetic flair, and initial appeal.
   - `audit`: In-depth, semantic, and structural analysis focusing on core mechanics, math balance, edge cases, exploits, and loopholes.
-- **`[STATE]-[PHASE]` Syntax Standard:** Enforced strict prefix state + suffix phase naming format.
-- **Updated Validation Regular Expression:** Codified regex `^(pending|in-progress|pending-review|in-progress-review|pending-audit|in-progress-audit|pending-refactor|in-progress-refactor|completed|blocked|deprecated)$`.
 
 ---
 
