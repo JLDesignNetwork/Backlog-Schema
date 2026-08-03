@@ -8,15 +8,21 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.13.0-as (2026-08-03) - Public Alpha Release
+
+**Public Alpha release applying Round 9 Red Team Audit fixes: Acyclic DAG Prerequisite Rule, Self-Reference Prohibition, Terminal Prerequisite Satisfaction on Deprecated Tasks, and Formalized Priority Hierarchy Ranks.**
+
+#### Added
+- **Acyclic DAG Prerequisite Rule:** Codified rule requiring `prerequisite` relational chains to form a directed acyclic graph, strictly prohibiting circular prerequisite deadlocks.
+- **Self-Reference Prohibition:** Codified explicit prohibition against self-referential task IDs in `child_of`, `relates_to`, or `prerequisite` keys (`"child_of": "TODO-01"` on `TODO-01`).
+- **Terminal Prerequisite Satisfaction on Deprecated Tasks:** Clarified that prerequisite gating is satisfied whenever a prerequisite task reaches ANY valid terminal state (`completed` or `deprecated`).
+- **Formal Priority Rank Order:** Formalized the 4-level numerical rank hierarchy: `critical` (Rank 4) > `high` (Rank 3) > `medium` (Rank 2) > `low` (Rank 1).
+
+---
+
 ### 2608.12.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 8 Red Team Audit fixes: `prerequisite` Execution Key, Active-Only Parent Priority De-Escalation Sync, Section Minimum Quality Threshold, and Single-Line String Requirement.**
-
-#### Added
-- **`prerequisite` Property:** Added optional `"prerequisite"` string property (e.g. `"prerequisite": "TODO-01.1a"`) enforcing explicit execution gating for parallel agent workflows until the prerequisite reaches a terminal state.
-- **Active-Only Parent Priority De-Escalation Sync:** Codified rule specifying that parent dynamic priority sync calculates strictly against ACTIVE / NON-TERMINAL sub-tasks, automatically de-escalating parent priority when critical sub-tasks reach `completed` or `deprecated`.
-- **Section Minimum Quality Threshold:** Enforced minimum 5-character length constraint on `section` strings (e.g. `"## Behavior"`), invalidating bare hashes (`"##"`).
-- **Single-Line String Requirement:** Codified rule prohibiting raw unescaped newlines in task JSON string properties.
 
 ---
 
