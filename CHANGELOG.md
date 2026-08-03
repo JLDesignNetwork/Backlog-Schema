@@ -8,26 +8,32 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
-### 2608.6.0-s (2026-08-03) - Stable Release
+### 2608.8.0-s (2026-08-03) - Stable Release
 
-**Public Alpha release applying Round 3 Red Team Audit fixes: Sub-Task Letter Parts (`TODO-01.1a` through `TODO-01.1z`), strict local document isolation, conditional `reason` requirement, and priority escalation rules.**
+**Public Alpha release integrating the `child_of` vertical ancestry key and decoupled `relates_to` horizontal association key.**
 
 #### Added
-- **Sub-Task Letter Parts (`TODO-01.1a`):** Codified sub-task letter parts (`TODO-01.1a` to `TODO-01.1z`) with a hard single-level cap. Prohibited sub-sub-task splitting; required creating new top-level tasks with `"relates_to"` when further breakdown is needed.
-- **Strict Local Document Isolation for `relates_to`:** Codified that todo items are strictly document-bound and can never reference external files or contain todo data for other files.
-- **Conditional `reason` Property:** Updated property type to Conditional (mandatory if `blocked` or `deprecated`; optional otherwise).
-- **Priority Escalation Rules:** Codified mutable priority rules allowing immediate escalation to `critical` or `high` when deep audits uncover critical flaws.
+- **`child_of` Property:** Added optional `"child_of"` string property establishing immutable vertical task lineage (e.g. `"child_of": "TODO-01"`), mathematically guaranteeing an acyclic directed graph (DAG) while preserving parent task immutability.
+- **Decoupled `relates_to` Property:** Refined `"relates_to"` to serve strictly as a horizontal correlation key for tasks sharing context without parent-child ancestry.
+- **Sub-Task Single Letter Hard Limit:** Enforced hard cap on single-letter sub-task parts (`TODO-01.1a` through `TODO-01.1z`), forcing new top-level tasks with `"child_of"` if letter parts exceed `'z'`.
+
+---
+
+### 2608.7.0-s (2026-08-03) - Stable Release
+
+**Public Alpha release applying Round 4 Red Team Audit fixes: Single-letter sub-task limit (`a`-`z`), primary key uniqueness enforcement, title/details quality thresholds, and DAG relational link rules.**
+
+---
+
+### 2608.6.0-s (2026-08-03) - Stable Release
+
+**Public Alpha release applying Round 3 Red Team Audit fixes: Sub-Task Letter Parts (`TODO-01.1a`), strict local document isolation, conditional `reason` requirement, and priority escalation rules.**
 
 ---
 
 ### 2608.5.0-s (2026-08-03) - Stable Release
 
 **Public Alpha release applying Round 2 Red Team Audit fixes: Mandatory `priority` property, `relates_to` relational linking key, parent completion on terminal child states, section heading resilience, and numeric ID parsing.**
-
-#### Added
-- **Mandatory `priority` Property:** Made `priority` a required property on all task objects.
-- **`relates_to` Relational Linking Key:** Added optional `"relates_to"` property referencing prior local task IDs.
-- **Immutable Completion Rule:** Formally prohibited re-opening `completed` tasks.
 
 ---
 
