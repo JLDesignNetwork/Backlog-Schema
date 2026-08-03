@@ -5,7 +5,7 @@ Welcome to the official specification repository for the **JLDN Todo Schema**.
 - **Master Specification File:** [todo-2608.md](./todo-2608.md)
 - **Standalone Changelog:** [CHANGELOG.md](./CHANGELOG.md)
 - **Author:** Jeff Langdon
-- **Version:** `2608.3.0-s`
+- **Version:** `2608.4.0-s`
 
 ## Overview
 
@@ -18,6 +18,13 @@ The JLDN Todo Schema is a proprietary, version-bound task management protocol th
 * **Deep Audit (Mechanics & Loopholes):** `pending:audit`, `in-progress:audit`
 * **Refactoring & Re-Balancing:** `pending:refactor`, `in-progress:refactor`
 * **Terminal & Control:** `completed`, `blocked`, `deprecated`
+
+### Key Features (v2608.4.0-s)
+
+* **Unblock Recovery Pathway:** `blocked` tasks resume previous active state immediately upon resolution.
+* **Sub-Task Dot Notation:** Multi-issue audit findings split into sub-tasks (e.g. `TODO-01.1`, `TODO-01.2`).
+* **Metadata Properties:** Optional `reason` (for blocked/deprecated tasks) and `owner` (for multi-agent concurrency).
+* **Trivial Fast-Track vs. Complex Audit Rules:** Fast-track simple typos directly to `completed`; require audit loops for structural edits.
 
 ### Validation Regular Expression
 
