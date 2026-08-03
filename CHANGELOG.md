@@ -8,6 +8,17 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.14.0-as (2026-08-03) - Public Alpha Release
+
+**Public Alpha release adding conditionally mandatory `*-since` Version Origin Keys (`existed_since`, `blocked_since`, `deprecated_since`) and the `protection` Governance Key for completed tasks.**
+
+#### Added
+- **`*-since` Version Origin Keys:** Codified conditionally mandatory version tracking keys (`existed_since` required on task creation; `blocked_since` required on `blocked` status; `deprecated_since` required on `deprecated` status).
+- **`protection` Governance Key:** Codified architectural preservation key for `completed` tasks (`"protected"` vs `"open"`, defaulting to `"open"` when omitted). Protected items represent locked system elements requiring future tasks/refactors to build around them.
+- **`protection` Regex Validation:** Added `^(protected|open)$` regular expression standard.
+
+---
+
 ### 2608.13.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 9 Red Team Audit fixes: Acyclic DAG Prerequisite Rule, Self-Reference Prohibition, Terminal Prerequisite Satisfaction on Deprecated Tasks, and Formalized Priority Hierarchy Ranks.**
