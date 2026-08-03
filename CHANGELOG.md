@@ -8,15 +8,21 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.10.0-as (2026-08-03) - Public Alpha Release
+
+**Public Alpha release applying Round 6 Red Team Audit fixes: Sub-Task Numerical Index Formatting (`.1a`), Parent Deprecation Cascade Rule, Empty Array Validity (`"todo": []`), and Pre-Validation String Trimming.**
+
+#### Added
+- **Sub-Task Numerical Index Formatting (`.1a`):** Codified that sub-task numerical indexes use unpadded integers (`.1a`, `.2a`, `.10a`), and parsing engines MUST strip sub-task suffixes to resolve parent IDs (`TODO-01`).
+- **Parent Deprecation Cascade Rule:** Codified rule requiring all active/pending child sub-tasks to automatically cascade to `deprecated` status whenever their parent task transitions to `deprecated`.
+- **Empty Array Validity (`"todo": []`):** Explicitly codified that an empty array (`"todo": []`) is valid JSON frontmatter representing zero active tasks.
+- **Pre-Validation String Trimming:** Codified requirement for ingestion engines to trim leading/trailing whitespace prior to regex evaluation.
+
+---
+
 ### 2608.9.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 5 Red Team Audit fixes: Parent-Child Blocker Propagation, Strict Target Existence Validation, Priority Validation Regex, and Pair Owner Formatting Standard.**
-
-#### Added
-- **Parent-Child Blocker Propagation:** Codified rule requiring parent tasks to transition to `blocked` whenever any active child sub-task becomes `blocked`.
-- **Strict Target Existence Validation:** Enforced that `child_of` and `relates_to` properties MUST reference existing task IDs within the local document frontmatter.
-- **Priority Validation Regex:** Added explicit regex `^(critical|high|medium|low)$` to Section 4.
-- **Pair Owner Syntax Standard:** Standardized slash-delimited formatting (`"Agent-Alpha/Jeff"`) for joint task ownership.
 
 ---
 
