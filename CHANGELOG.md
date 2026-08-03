@@ -8,14 +8,21 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.9.0-s (2026-08-03) - Stable Release
+
+**Public Alpha release applying Round 5 Red Team Audit fixes: Parent-Child Blocker Propagation, Strict Target Existence Validation, Priority Validation Regex, and Pair Owner Formatting Standard.**
+
+#### Added
+- **Parent-Child Blocker Propagation:** Codified rule requiring parent tasks to transition to `blocked` whenever any active child sub-task becomes `blocked`.
+- **Strict Target Existence Validation:** Enforced that `child_of` and `relates_to` properties MUST reference existing task IDs within the local document frontmatter.
+- **Priority Validation Regex:** Added explicit regex `^(critical|high|medium|low)$` to Section 4.
+- **Pair Owner Syntax Standard:** Standardized slash-delimited formatting (`"Agent-Alpha/Jeff"`) for joint task ownership.
+
+---
+
 ### 2608.8.0-s (2026-08-03) - Stable Release
 
 **Public Alpha release integrating the `child_of` vertical ancestry key and decoupled `relates_to` horizontal association key.**
-
-#### Added
-- **`child_of` Property:** Added optional `"child_of"` string property establishing immutable vertical task lineage (e.g. `"child_of": "TODO-01"`), mathematically guaranteeing an acyclic directed graph (DAG) while preserving parent task immutability.
-- **Decoupled `relates_to` Property:** Refined `"relates_to"` to serve strictly as a horizontal correlation key for tasks sharing context without parent-child ancestry.
-- **Sub-Task Single Letter Hard Limit:** Enforced hard cap on single-letter sub-task parts (`TODO-01.1a` through `TODO-01.1z`), forcing new top-level tasks with `"child_of"` if letter parts exceed `'z'`.
 
 ---
 
