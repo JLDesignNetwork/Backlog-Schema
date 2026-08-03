@@ -8,15 +8,21 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.12.0-as (2026-08-03) - Public Alpha Release
+
+**Public Alpha release applying Round 8 Red Team Audit fixes: `prerequisite` Execution Key, Active-Only Parent Priority De-Escalation Sync, Section Minimum Quality Threshold, and Single-Line String Requirement.**
+
+#### Added
+- **`prerequisite` Property:** Added optional `"prerequisite"` string property (e.g. `"prerequisite": "TODO-01.1a"`) enforcing explicit execution gating for parallel agent workflows until the prerequisite reaches a terminal state.
+- **Active-Only Parent Priority De-Escalation Sync:** Codified rule specifying that parent dynamic priority sync calculates strictly against ACTIVE / NON-TERMINAL sub-tasks, automatically de-escalating parent priority when critical sub-tasks reach `completed` or `deprecated`.
+- **Section Minimum Quality Threshold:** Enforced minimum 5-character length constraint on `section` strings (e.g. `"## Behavior"`), invalidating bare hashes (`"##"`).
+- **Single-Line String Requirement:** Codified rule prohibiting raw unescaped newlines in task JSON string properties.
+
+---
+
 ### 2608.11.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release applying Round 7 Red Team Audit fixes: Parent Priority Dynamic Sync, 2-Space Indented UTF-8 JSON Formatting Standard, 4-Digit ID Scaling Regex (`TODO-\d{2,4}`), and Cascaded Deprecation Immutability.**
-
-#### Added
-- **Parent Priority Dynamic Sync Rule:** Codified rule requiring parent tasks to automatically update their `priority` to match the highest priority contained within any active child sub-task or sub-task part (`critical` > `high` > `medium` > `low`).
-- **2-Space Indented UTF-8 JSON Standard:** Codified strict JSON frontmatter formatting rules (UTF-8 encoded, 2-space indented, no tabs).
-- **ID Validation Regex (`TODO-\d{2,4}`):** Added explicit task ID regex validation supporting scaling up to 9,999 tasks per document (`^TODO-\d{2,4}(\.\d+[a-z])?$`).
-- **Cascaded Deprecation Immutability:** Enforced that cascaded deprecations are immutable terminal states; reinstating features requires creating new tasks with `"child_of"`.
 
 ---
 
