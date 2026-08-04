@@ -1,57 +1,26 @@
-# JLDN Todo Schema Specification
+# JLDN Todo Schema Specification (v2608.16.0-as)
 
-Welcome to the official specification repository for the **JLDN Todo Schema**.
-
-- **Master Specification File:** [todo-2608.md](./todo-2608.md)
-- **Standalone Changelog:** [CHANGELOG.md](./CHANGELOG.md)
-- **Author:** Jeff Langdon
-- **Version:** `2608.14.0-as`
+Welcome to the **JLDN Todo Schema Specification** (Generational Versioning Schema: `2608.16.0-as`).
 
 ## Overview
 
-The JLDN Todo Schema is a proprietary, version-bound task management protocol that embeds structured JSON task arrays directly into Markdown document frontmatter (`todo` array).
+This repository contains the master specification and task tracking dataset for the **JLDN Todo Schema**.
 
-### Key Features (v2608.14.0-as)
+* **Author:** Jeff Langdon (JL Design Network)
+* **Specification Version:** `2608.16.0-as` (Public Alpha)
 
-* **`*-since` Version Origin Keys:** Conditionally mandatory keys tracking task lifecycle versioning (`existed_since` required on creation; `blocked_since` required on `blocked`; `deprecated_since` required on `deprecated`).
-* **`protection` Governance Key:** Architectural preservation flag for `completed` tasks (`"protected"` vs `"open"`). Protected tasks represent locked system elements requiring future tasks/refactors to build around them.
-* **`prerequisite` Execution Key:** Enforces explicit task execution gating (`"prerequisite": "TODO-01.1a"`) for parallel agent workflows.
-* **Acyclic Prerequisite DAG Rule:** `prerequisite` chains MUST form a directed acyclic graph (prohibiting circular execution deadlocks).
-* **Self-Reference Prohibition:** Self-referential IDs in `child_of`, `relates_to`, or `prerequisite` are strictly invalid.
-* **Terminal Prerequisite Satisfaction:** Prerequisites are satisfied when a task reaches ANY terminal state (`completed` or `deprecated`).
-* **Formal Priority Rank Order:** Strict 4-level hierarchy: `critical` (Rank 4) > `high` (Rank 3) > `medium` (Rank 2) > `low` (Rank 1).
-* **11-State Modular Task Matrix (`[STATE]:[PHASE]`):**
-  * **Initial Work:** `pending`, `in-progress`
-  * **Surface Review:** `pending:review`, `in-progress:review`
-  * **Deep Audit:** `pending:audit`, `in-progress:audit`
-  * **Refactoring:** `pending:refactor`, `in-progress:refactor`
-  * **Terminal & Control:** `completed`, `blocked`, `deprecated`
+### Generation 2608 Workspace Layout
+- 📄 **[Specification Document](./2608/todo.md):** `2608/todo.md`
+- 📊 **[TODO Dataset](./2608/todo.json):** `2608/todo.json` (JLDN Todo Schema v2608.16.0-as Mode 2)
+- 📝 **[Changelog](./2608/CHANGELOG.md):** `2608/CHANGELOG.md`
 
-### Validation Regular Expressions
+## Core Features
 
-**Status Regex:**
-```regex
-^(pending|in-progress|pending:review|in-progress:review|pending:audit|in-progress:audit|pending:refactor|in-progress:refactor|completed|blocked|deprecated)$
-```
-
-**Priority Regex & Rank Order:**
-```regex
-^(critical|high|medium|low)$
-```
-* **Rank 4:** `critical`
-* **Rank 3:** `high`
-* **Rank 2:** `medium`
-* **Rank 1:** `low`
-
-**Protection Regex:**
-```regex
-^(protected|open)$
-```
-
-**ID Regex:**
-```regex
-^TODO-\d{2,4}(\.\d+[a-z])?$
-```
+- **Dual Storage Architecture:** Supports Mode 1 (Embedded Inline Frontmatter) and Mode 2 (Companion Dataset Pattern).
+- **Phase-Aware Lifecycle:** 11-state modular task matrix (`pending`, `in-progress:audit`, `completed`, `blocked`, `deprecated`).
+- **Relational Lineage:** Vertical ancestry (`child_of`) and horizontal association (`relates_to`, `prerequisite`).
+- **Version Origin Tracking:** Conditionally mandatory `existed_since`, `blocked_since`, and `deprecated_since` tracking.
+- **Architectural Protection:** Lock completed architectural milestones (`"protection": "protected"`).
 
 ## License & Attribution
 
