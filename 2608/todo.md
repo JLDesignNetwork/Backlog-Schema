@@ -3,7 +3,7 @@
   "metadata": {
     "author": "Jeff Langdon",
     "rulesetName": "Todo Schema",
-    "version": "2608.16.0-as",
+    "version": "2608.17.0-as",
     "todo_file": "todo.json",
     "changelog_file": "CHANGELOG.md"
   }
@@ -15,7 +15,7 @@
 
 **Author:** Jeff Langdon  
 **Schema Standard:** JLDN Document-Bound Task Tracking System  
-**Version:** `2608.16.0-as`
+**Version:** `2608.17.0-as`
 
 This document defines the official specification for the **JLDN Todo Schema**. Designed as an embedded, version-bound task management protocol, this schema structures project tasks directly within Markdown JSON frontmatter (`todo` array).
 
@@ -127,6 +127,11 @@ Each task in the `todo` array must be a valid JSON object matching the following
 * **`child_of` (String, Optional):** Direct parent task ID within the local document that spawned this task (e.g., `"TODO-01"`). Establishes immutable vertical task ancestry and mathematically guarantees a directed acyclic graph (DAG). Self-referential keys (`"child_of": "TODO-01"`) are strictly prohibited. Parent tasks remain immutable when child tasks are created. Target ID MUST exist within the local document frontmatter.
 * **`prerequisite` (String, Optional):** Direct prerequisite local task ID (e.g. `"TODO-01.1a"`) that MUST reach ANY valid terminal state (`completed` or `deprecated`) before this task is permitted to transition to `in-progress`. Enables explicit execution gating for parallel agent workflows. Prerequisite chains MUST form a directed acyclic graph (DAG); circular prerequisite dependencies and self-references (`"prerequisite": "TODO-01"`) are strictly prohibited.
 * **`relates_to` (String, Optional):** Horizontal correlation key pointing to a related local task ID sharing mechanical or section context (e.g., `"TODO-04"`). Self-references are strictly prohibited. Target ID MUST exist within the local document frontmatter. Cross-document references are strictly prohibited due to document-bound isolation rules.
+* **`target_*` Metadata Keys (String, Optional):** Explicit target pointers used primarily in project-wide or cross-generation task tracking datasets (such as root `todo.json`) to eliminate reference ambiguity across multiple versions, files, or repositories:
+  * **`target_version` (String, Optional):** Explicit version string or major generation directory targeted by the task (e.g., `"2608"` or `"2608.47.0-as"`).
+  * **`target_file` (String, Optional):** Explicit file path relative to repository root targeted by the task (e.g., `"2608/vampire.md"`).
+  * **`target_component` (String, Optional):** Specific sub-component, module, or package targeted by the task.
+  * **`target_repository` (String, Optional):** Target repository URI or name for cross-repository project management.
 
 ---
 

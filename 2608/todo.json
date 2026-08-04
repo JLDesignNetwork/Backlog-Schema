@@ -1,5 +1,5 @@
 {
-  "version": "2608.16.0-as",
+  "version": "2608.17.0-as",
   "todo": [
     {
       "id": "TODO-01",
@@ -140,6 +140,17 @@
       "protection": "protected",
       "existed_since": "2608.16.0-as",
       "details": "Standardized companion dataset filename to todo.json or todo.yaml inside version directories, eliminating version number redundancy from internal filenames."
+    },
+    {
+      "id": "TODO-15",
+      "section": "## Task Object Schema Structure",
+      "link": "todo.md#task-object-schema-structure",
+      "title": "Codify Target Metadata Keys (target_version, target_file, target_component, target_repository)",
+      "status": "completed",
+      "priority": "high",
+      "protection": "protected",
+      "existed_since": "2608.17.0-as",
+      "details": "Codified optional target metadata keys (target_version, target_file, target_component, target_repository) to eliminate reference ambiguity in cross-version and project-wide task tracking datasets."
     }
   ]
 }

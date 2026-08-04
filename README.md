@@ -1,13 +1,13 @@
-# JLDN Todo Schema Specification (v2608.16.0-as)
+# JLDN Todo Schema (v2608.17.0-as)
 
-Welcome to the **JLDN Todo Schema Specification** (Generational Versioning Schema: `2608.16.0-as`).
+Welcome to the **JLDN Todo Schema** specification repository (JLDN Generational Versioning Schema: `2608.17.0-as`).
 
 ## Overview
 
-This repository contains the master specification and task tracking dataset for the **JLDN Todo Schema**.
+This repository contains the official specification and dataset for the **JLDN Todo Schema**, a standardized, embedded, document-bound task management protocol for technical rulesets and specifications.
 
 * **Author:** Jeff Langdon (JL Design Network)
-* **Specification Version:** `2608.16.0-as` (Public Alpha)
+* **Schema Version:** `2608.17.0-as` (Public Alpha)
 
 ### Generation 2608 Workspace Layout
 - 📄 **[Specification Document](./2608/todo.md):** `2608/todo.md`

@@ -8,6 +8,16 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.17.0-as (2026-08-04) - Public Alpha Release
+
+**Public Alpha release codifying Target Metadata Keys (`target_version`, `target_file`, `target_component`, `target_repository`) in the task object schema (`TODO-15`).**
+
+#### Added
+- **Target Metadata Keys (`target_*`):** Codified optional target pointers (`target_version`, `target_file`, `target_component`, `target_repository`) to eliminate reference ambiguity in cross-version and project-wide task tracking datasets (such as root `todo.json`).
+- **`TODO-15` Registered & Completed:** Registered task `TODO-15` in `2608/todo.json` tracking target metadata keys governance.
+
+---
+
 ### 2608.16.0-as (2026-08-04) - Public Alpha Release
 
 **Public Alpha release standardizing companion dataset filename (`todo.json` / `todo.yaml`) and eliminating redundant version numbers from filenames inside version directories.**
