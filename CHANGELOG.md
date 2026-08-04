@@ -8,6 +8,17 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.15.0-as (2026-08-04) - Public Alpha Release
+
+**Public Alpha release formalizing Mode 2 Companion Dataset Storage Pattern and metadata pointer keys (`todo_file`, `changelog_file`).**
+
+#### Added
+- **Storage Modes Architecture:** Codified Mode 1 (Embedded Inline Frontmatter) and Mode 2 (Companion Dataset Storage Pattern) for repository architecture flexibility.
+- **Metadata File Pointers:** Codified `"todo_file"` (referencing sibling dataset `<file>.todo.json`) and `"changelog_file"` (referencing sibling `CHANGELOG.md`) within document frontmatter headers.
+- **`TODO-13` Registered:** Completed task `TODO-13` in frontmatter tracking Mode 2 companion dataset governance.
+
+---
+
 ### 2608.14.0-as (2026-08-03) - Public Alpha Release
 
 **Public Alpha release adding conditionally mandatory `*-since` Version Origin Keys (`existed_since`, `blocked_since`, `deprecated_since`) and the `protection` Governance Key for completed tasks.**
