@@ -8,6 +8,17 @@ The versioning follows the [JLDN Generational Versioning Schema](https://github.
 
 ## Generation 2608
 
+### 2608.16.0-as (2026-08-04) - Public Alpha Release
+
+**Public Alpha release standardizing companion dataset filename (`todo.json` / `todo.yaml`) and eliminating redundant version numbers from filenames inside version directories.**
+
+#### Added
+- **Standard Companion Dataset Filenames:** Standardized default companion file naming to `todo.json` or `todo.yaml` within major version folders.
+- **Non-Redundant Version Naming:** Standardized document naming inside version folders (`2608/vampire.md`, `2608/todo.json`), leaving version numbers exclusively to folder names (`2608/`).
+- **`TODO-14` Registered:** Completed task `TODO-14` in frontmatter tracking standardized `todo.json` companion dataset governance.
+
+---
+
 ### 2608.15.0-as (2026-08-04) - Public Alpha Release
 
 **Public Alpha release formalizing Mode 2 Companion Dataset Storage Pattern and metadata pointer keys (`todo_file`, `changelog_file`).**
