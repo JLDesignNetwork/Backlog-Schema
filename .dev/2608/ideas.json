@@ -1,0 +1,16 @@
+[
+  {
+    "id": "PROJ-IDEA-01",
+    "title": "Automated Backlog Schema CLI Validator",
+    "status": "pending",
+    "details": "Create a standalone Python/Node CLI tool that validates any backlog.json against schema invariants (DAG cycles, existed_since completeness, valid states).",
+    "created_at": "2026-08-18T16:45:00+02:00"
+  },
+  {
+    "id": "PROJ-IDEA-02",
+    "title": "Interactive Terminal Backlog Visualizer",
+    "status": "pending",
+    "details": "Develop a lightweight TUI / CLI tool to display task hierarchies, DAG dependencies, and blocker cascades directly in terminal sessions.",
+    "created_at": "2026-08-18T16:45:00+02:00"
+  }
+]

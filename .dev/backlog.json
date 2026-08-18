@@ -1,0 +1,12 @@
+[
+  {
+    "id": "PROJ-TODO-16",
+    "title": "Execute Orange Team Legacy Modernization & Backlog Schema Alignment",
+    "status": "completed",
+    "priority": "critical-1",
+    "protection": "protected",
+    "existed_since": "2608.18.0-as",
+    "created_at": "2026-08-18T16:45:00+02:00",
+    "details": "Renamed repository to Backlog-Schema, standardized all documentation on backlog.json, scaffolded .dev/ hub, .agents/ workspace, in-repo docs/ wiki, and completed .github/ governance suite."
+  }
+]

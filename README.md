@@ -1,27 +1,51 @@
-# JLDN Todo Schema (v2608.17.0-as)
+# JLDN Backlog Schema
 
-Welcome to the **JLDN Todo Schema** specification repository (JLDN Generational Versioning Schema: `2608.17.0-as`).
+[![GVS](https://img.shields.io/badge/GVS-2608.18.0--as-purple?style=flat-square)](https://github.com/JLDesignNetwork/Backlog-Schema)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jldesignnetwork)
+
+Welcome to the **JLDN Backlog Schema** specification repository (JLDN Generational Versioning Schema: `2608.18.0-as`).
+
+---
 
 ## Overview
 
-This repository contains the official specification and dataset for the **JLDN Todo Schema**, a standardized, embedded, document-bound task management protocol for technical rulesets and specifications.
+The **JLDN Backlog Schema** is the standardized, document-bound and repository-bound task management protocol governing all JLDN software, technical specifications, publishing pipelines, and developer tooling.
 
 * **Author:** Jeff Langdon (JL Design Network)
-* **Schema Version:** `2608.17.0-as` (Public Alpha)
+* **Schema Version:** `2608.18.0-as` (Public Alpha)
+* **Active Generation:** `2608`
 
-### Generation 2608 Workspace Layout
-- 📄 **[Specification Document](./2608/todo.md):** `2608/todo.md`
-- 📊 **[TODO Dataset](./2608/todo.json):** `2608/todo.json` (JLDN Todo Schema v2608.16.0-as Mode 2)
-- 📝 **[Changelog](./2608/CHANGELOG.md):** `2608/CHANGELOG.md`
+---
+
+## 📚 Documentation & Quick Links
+
+- 📄 **[Backlog Specification](docs/specification.md):** Complete technical protocol, validation regexes, and taxonomy rules.
+- 🛠️ **[Usage Guide](docs/usage.md):** Mode 1 and Mode 2 implementation blueprints.
+- 🗺️ **[Strategic Roadmap](.dev/ROADMAP.md):** Generational horizons and future tooling roadmap.
+- 📝 **[Changelog](CHANGELOG.md):** Specification release history.
+
+---
 
 ## Core Features
 
-- **Dual Storage Architecture:** Supports Mode 1 (Embedded Inline Frontmatter) and Mode 2 (Companion Dataset Pattern).
+- **Unified Taxonomy Architecture:** Standardized `([DOMAIN]-[TYPE]-[NN])` schema (`PROJ`, `DOCS`, `BOOK`, `WEB`, `EXT`).
+- **Dual Storage Modes:** Supports Mode 1 (Embedded Inline Frontmatter) and Mode 2 (Generational `.dev/` Hub Pattern).
 - **Phase-Aware Lifecycle:** 11-state modular task matrix (`pending`, `in-progress:audit`, `completed`, `blocked`, `deprecated`).
-- **Relational Lineage:** Vertical ancestry (`child_of`) and horizontal association (`relates_to`, `prerequisite`).
+- **Acyclic Relational Lineage:** Vertical ancestry (`child_of`) and horizontal association (`relates_to`, `prerequisite`).
 - **Version Origin Tracking:** Conditionally mandatory `existed_since`, `blocked_since`, and `deprecated_since` tracking.
 - **Architectural Protection:** Lock completed architectural milestones (`"protection": "protected"`).
 
+---
+
+## Funding & Support
+
+If you find this specification or associated developer tooling helpful, consider supporting ongoing development:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jldesignnetwork)
+
+---
+
 ## License & Attribution
 
-Designed and maintained by Jeff Langdon / JL Design Network. All rights reserved.
+Licensed under the [MIT License](LICENSE). Designed and maintained by Jeff Langdon / JL Design Network. All rights reserved.

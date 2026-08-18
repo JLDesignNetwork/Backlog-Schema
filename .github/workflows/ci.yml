@@ -1,0 +1,46 @@
+name: "CI Quality Gate"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Schema & JSON Validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate All JSON Files
+        run: |
+          python3 -c "
+          import json, glob, sys
+          has_error = False
+          for f in glob.glob('**/*.json', recursive=True):
+              try:
+                  with open(f, 'r', encoding='utf-8') as fh:
+                      json.load(fh)
+                  print(f'✅ Valid JSON: {f}')
+              except Exception as e:
+                  print(f'❌ Invalid JSON: {f} -> {e}', file=sys.stderr)
+                  has_error = True
+          if has_error:
+              sys.exit(1)
+          "

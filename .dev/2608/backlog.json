@@ -1,0 +1,162 @@
+[
+  {
+    "id": "PROJ-TODO-01",
+    "title": "Codify 11-State Modular Task Matrix",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.1.0-s",
+    "created_at": "2026-08-03T12:00:00+02:00",
+    "details": "Formalized pending/in-progress initial, review, audit, and refactor states along with completed, blocked, and deprecated terminal states using colon delimiter."
+  },
+  {
+    "id": "PROJ-TODO-02",
+    "title": "Integrate Unblock Recovery, Sub-Task Hierarchy, and Metadata Properties",
+    "status": "completed",
+    "priority": "high-2",
+    "protection": "protected",
+    "existed_since": "2608.4.0-as",
+    "created_at": "2026-08-03T14:00:00+02:00",
+    "details": "Added reason and owner properties, dot-notation sub-task branching (TODO-01.1), unblock recovery paths, and trivial fast-track rules."
+  },
+  {
+    "id": "PROJ-TODO-03",
+    "title": "Integrate Mandatory Priority, Relates-To Relational Linking, and Terminal Child Completion Rules",
+    "status": "completed",
+    "priority": "critical-1",
+    "protection": "protected",
+    "existed_since": "2608.5.0-as",
+    "created_at": "2026-08-03T16:00:00+02:00",
+    "details": "Codified mandatory priority property, relates_to historical linking key, parent completion on child terminal state, section heading resilience, and numeric ID parsing."
+  },
+  {
+    "id": "PROJ-TODO-04",
+    "title": "Integrate Sub-Task Letter Parts (TODO-01.1a), Strict Local Relational Scope, and Priority Escalation",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.6.0-as",
+    "created_at": "2026-08-03T18:00:00+02:00",
+    "details": "Codified sub-task letter parts (TODO-01.1a through TODO-01.1z) with strict single-level cap, enforced strict local-only relates_to scope, updated reason to Conditional, and codified priority escalation."
+  },
+  {
+    "id": "PROJ-TODO-05",
+    "title": "Integrate Single-Letter Sub-Task Hard Limit, Acyclic Relational Links, Primary Key Uniqueness, and Task Quality Constraints",
+    "status": "completed",
+    "priority": "high-2",
+    "protection": "protected",
+    "existed_since": "2608.7.0-as",
+    "created_at": "2026-08-03T20:00:00+02:00",
+    "details": "Hard-limited sub-task letters to single a-z range forcing new top-level tasks beyond z, prohibited circular relates_to references, enforced primary key uniqueness, and set title/details quality length thresholds."
+  },
+  {
+    "id": "PROJ-TODO-06",
+    "title": "Integrate Child_Of Ancestry Key and Decoupled Relates_To Horizontal Association",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.8.0-as",
+    "created_at": "2026-08-03T22:00:00+02:00",
+    "details": "Codified child_of property for immutable vertical ancestry guaranteeing acyclic lineage, alongside relates_to for loose horizontal association."
+  },
+  {
+    "id": "PROJ-TODO-07",
+    "title": "Integrate Parent-Child Blocker Propagation, Referential Integrity, Priority Regex, and Pair Owner Syntax",
+    "status": "completed",
+    "priority": "high-2",
+    "protection": "protected",
+    "existed_since": "2608.9.0-as",
+    "created_at": "2026-08-04T00:00:00+02:00",
+    "details": "Codified parent blocker propagation when child tasks lock, enforced strict referential existence validation for child_of/relates_to, added priority regex validation, and standardized slash-delimited multi-owner syntax."
+  },
+  {
+    "id": "PROJ-TODO-08",
+    "title": "Integrate Sub-Task Numerical Formatting, Parent Deprecation Cascade, Empty Array Validity, and String Normalization",
+    "status": "completed",
+    "priority": "high-3",
+    "protection": "protected",
+    "existed_since": "2608.10.0-as",
+    "created_at": "2026-08-04T02:00:00+02:00",
+    "details": "Codified unpadded integer sub-task numerical formatting (.1a), parent deprecation cascade to all active child tasks, empty todo array validity, and pre-validation string trimming rules."
+  },
+  {
+    "id": "PROJ-TODO-09",
+    "title": "Integrate Parent Priority Dynamic Sync, 2-Space JSON Encoding Standard, 4-Digit ID Scaling, and Cascaded Deprecation Immutability",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.11.0-as",
+    "created_at": "2026-08-04T04:00:00+02:00",
+    "details": "Codified parent priority dynamic sync to highest sub-task priority, enforced 2-space indented UTF-8 JSON frontmatter, expanded ID regex to 4 digits (TODO-9999), and locked cascaded deprecation immutability."
+  },
+  {
+    "id": "PROJ-TODO-10",
+    "title": "Integrate Optional Link Anchor Key for Pragmatic Navigation",
+    "status": "completed",
+    "priority": "low-1",
+    "protection": "protected",
+    "existed_since": "2608.14.0-as",
+    "created_at": "2026-08-04T06:00:00+02:00",
+    "details": "Codified optional link key allowing clean URI relative paths and section fragment anchors to navigate programmatically to target headings."
+  },
+  {
+    "id": "PROJ-TODO-11",
+    "title": "Integrate Mandatory Section Anchor Key and Deprecate Presentation Text Keys",
+    "status": "completed",
+    "priority": "medium-1",
+    "protection": "protected",
+    "existed_since": "2608.14.0-as",
+    "created_at": "2026-08-04T08:00:00+02:00",
+    "details": "Codified section key as mandatory anchor reference while deprecating raw presentation text keys in favor of clean URI strings."
+  },
+  {
+    "id": "PROJ-TODO-12",
+    "title": "Integrate Conditionally Mandatory *-Since Version Origin Keys and Task Protection Governance Key",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.14.0-as",
+    "created_at": "2026-08-04T10:00:00+02:00",
+    "details": "Codified conditionally mandatory existed_since, blocked_since, and deprecated_since version tracking keys alongside protection governance status for completed tasks."
+  },
+  {
+    "id": "PROJ-TODO-13",
+    "title": "Integrate Companion Dataset Storage Pattern and Metadata File Pointers",
+    "status": "completed",
+    "priority": "high-2",
+    "protection": "protected",
+    "existed_since": "2608.15.0-as",
+    "created_at": "2026-08-04T12:00:00+02:00",
+    "details": "Codified Mode 2 Companion Dataset Storage Pattern (todo_file and changelog_file metadata pointers) alongside Mode 1 embedded inline frontmatter."
+  },
+  {
+    "id": "PROJ-TODO-14",
+    "title": "Standardize Companion Dataset Filename and Non-Redundant Major Version Naming",
+    "status": "completed",
+    "priority": "high-3",
+    "protection": "protected",
+    "existed_since": "2608.16.0-as",
+    "created_at": "2026-08-04T14:00:00+02:00",
+    "details": "Standardized companion dataset filename to backlog.json inside version directories, eliminating version number redundancy from internal filenames."
+  },
+  {
+    "id": "PROJ-TODO-15",
+    "title": "Codify Target Metadata Keys (target_version, target_file, target_component, target_repository)",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "existed_since": "2608.17.0-as",
+    "created_at": "2026-08-04T16:00:00+02:00",
+    "details": "Codified optional target metadata keys (target_version, target_file, target_component, target_repository) to eliminate reference ambiguity in cross-version and project-wide task tracking datasets."
+  },
+  {
+    "id": "PROJ-TODO-16",
+    "title": "Execute Orange Team Legacy Modernization & Backlog Schema Alignment",
+    "status": "completed",
+    "priority": "critical-1",
+    "protection": "protected",
+    "existed_since": "2608.18.0-as",
+    "created_at": "2026-08-18T16:45:00+02:00",
+    "details": "Renamed repository to Backlog-Schema, standardized all documentation on backlog.json, scaffolded .dev/ hub, .agents/ workspace, in-repo docs/ wiki, and completed .github/ governance suite."
+  }
+]

@@ -1,0 +1,23 @@
+name: "Schema Proposal"
+description: "Propose a new schema key, lifecycle state, or architectural extension."
+title: "[PROPOSAL]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for submitting a proposal for the JLDN Backlog Schema!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem & Motivation
+      description: What limitation or workflow gap does this proposal address?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Detailed Proposal
+      description: Describe the proposed property name, validation rules, and lifecycle behavior.
+    validations:
+      required: true

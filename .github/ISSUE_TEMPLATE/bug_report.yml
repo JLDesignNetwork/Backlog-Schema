@@ -1,0 +1,30 @@
+name: "Specification Defect Report"
+description: "File a defect or logical contradiction in the JLDN Backlog Schema specification."
+title: "[BUG]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a specification defect!
+  - type: input
+    id: version
+    attributes:
+      label: Schema Version
+      description: What version of the schema are you referencing? (e.g., 2608.18.0-as)
+      placeholder: 2608.18.0-as
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Defect Description
+      description: A clear description of the logical contradiction or schema flaw.
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample JSON Payload
+      description: Provide an example JSON snippet demonstrating the defect.
+      render: json
