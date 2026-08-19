@@ -5,6 +5,14 @@ All notable changes to the **JLDN Backlog Schema Specification** will be documen
 The format is based on [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to the [JLDN Generational Versioning Schema (GVS)](https://github.com/JLDesignNetwork/Generational-Versioning-Schema).
 
+## [2608.19.0-as] - 2026-08-19
+
+### Changed
+- **Taxonomy Restructuring**: Eliminated terminology collision by explicitly separating `Type`, `Domain`, `Kind`, `Scope`, `Action`, and `Category`. Replaced `[TYPE]` with `[KIND]` in the Backlog ID string format (`[DOMAIN]-[KIND]-[NN]`).
+- **Domain Declarations**: Restructured the Domain namespace to strictly require `PROJ` and `DOCS` as universal baseline domains across all projects, while unlocking 3-5 character custom domains for developer architecture.
+- **Project Archetypes**: Renamed documentation project type from `docs` to `wiki` and experimental type from `sandbox` to `prototype` to resolve keyword collisions with Git commit verbs and workspace directories.
+- **Tracking Modes**: Enforced explicit file paths for `backlog` and `changelog` frontmatter keys, removing the ambiguous `linked` string example.
+
 ## [2608.18.0-as] - 2026-08-18
 
 ### Changed

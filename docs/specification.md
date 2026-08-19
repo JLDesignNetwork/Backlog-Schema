@@ -3,7 +3,7 @@
 > **Document:** `docs/specification.md`  
 > **Author:** Jeff Langdon (JL Design Network)  
 > **Standard:** JLDN Task & Backlog Management Protocol  
-> **Version:** `2608.18.0-as`  
+> **Version:** `2608.19.0-as`  
 
 ---
 

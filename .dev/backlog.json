@@ -8,5 +8,15 @@
     "existed_since": "2608.18.0-as",
     "created_at": "2026-08-18T16:45:00+02:00",
     "details": "Renamed repository to Backlog-Schema, standardized all documentation on backlog.json, scaffolded .dev/ hub, .agents/ workspace, in-repo docs/ wiki, and completed .github/ governance suite."
+  },
+  {
+    "id": "PROJ-TODO-17",
+    "title": "Codify JLDN Universal Taxonomy Standard and Zero-Collision Vocabulary",
+    "status": "completed",
+    "priority": "critical-1",
+    "protection": "protected",
+    "existed_since": "2608.19.0-as",
+    "created_at": "2026-08-19T23:20:00+02:00",
+    "details": "Eliminated terminology overlaps by explicitly separating Type, Domain, Kind, Scope, Action, and Category. Replaced [TYPE] with [KIND] in task IDs and set PROJ and DOCS as universal domains."
   }
 ]
