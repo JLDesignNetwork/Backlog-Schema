@@ -5,6 +5,11 @@ All notable changes to the **JLDN Backlog Schema Specification** will be documen
 The format is based on [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to the [JLDN Generational Versioning Schema (GVS)](https://github.com/JLDesignNetwork/Generational-Versioning-Schema).
 
+## [2608.19.1-bs] - 2026-08-19
+
+### Changed
+- **Lifecycle Transition**: Promoted the Backlog Schema standard to Beta Supported (`-bs`).
+
 ## [2608.19.0-as] - 2026-08-19
 
 ### Changed

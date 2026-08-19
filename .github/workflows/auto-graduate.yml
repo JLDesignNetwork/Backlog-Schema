@@ -1,0 +1,102 @@
+name: Auto-Graduate to Stable
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs daily at midnight UTC
+  workflow_dispatch: # Allows manual triggering for testing
+
+jobs:
+  auto-graduate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Need full history to get commit timestamps
+
+      - name: Check inactivity and current tag
+        id: check
+        run: |
+          # Get timestamp of latest commit on main
+          LATEST_COMMIT_TS=$(git log -1 --format=%ct origin/main)
+          CURRENT_TS=$(date +%s)
+          DIFF=$((CURRENT_TS - LATEST_COMMIT_TS))
+          
+          # 7 days = 604800 seconds
+          if [ "$DIFF" -ge 604800 ]; then
+            echo "Inactivity period of 7 days reached."
+            
+            # Check if README.md contains a -bs tag
+            if grep -q "\-bs" README.md; then
+              echo "Project is currently Beta Supported (-bs). Proceeding with graduation."
+              echo "graduate=true" >> $GITHUB_OUTPUT
+            else
+              echo "Project is not Beta Supported (-bs). No action needed."
+              echo "graduate=false" >> $GITHUB_OUTPUT
+            fi
+          else
+            DAYS=$((DIFF / 86400))
+            echo "Only $DAYS days since last commit. Timer resets."
+            echo "graduate=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Perform Graduation
+        if: steps.check.outputs.graduate == 'true'
+        run: |
+          # 1. Sed replace -bs with -s in README and specification
+          sed -i 's/-bs/-s/g' README.md
+          sed -i 's/-bs/-s/g' docs/specification.md
+          
+          # 2. Extract the new version string from README (e.g. 2608.19.1-s)
+          # We'll grep the GVS badge to extract it reliably
+          NEW_VERSION=$(grep -oE "GVS-[0-9]{4}\.[0-9]+\.[0-9]+--s" README.md | sed 's/GVS-//' | sed 's/--s/-s/')
+          
+          # 3. Prepend to CHANGELOG.md
+          # Create a temp file
+          echo "## [$NEW_VERSION] - $(date +%Y-%m-%d)" > temp_changelog.md
+          echo "" >> temp_changelog.md
+          echo "### Changed" >> temp_changelog.md
+          echo "- **Lifecycle Transition**: Automated graduation to Stable (\`-s\`) after 7 days of verified stability." >> temp_changelog.md
+          echo "" >> temp_changelog.md
+          
+          # Find the line number of the first "## [" and insert our temp content before it
+          FIRST_H2=$(awk '/^## \[/ {print NR; exit}' CHANGELOG.md)
+          if [ -n "$FIRST_H2" ]; then
+            head -n $((FIRST_H2 - 1)) CHANGELOG.md > new_changelog.md
+            cat temp_changelog.md >> new_changelog.md
+            tail -n +$FIRST_H2 CHANGELOG.md >> new_changelog.md
+            mv new_changelog.md CHANGELOG.md
+          else
+            # Fallback if CHANGELOG is malformed
+            cat temp_changelog.md >> CHANGELOG.md
+          fi
+          
+          # Clean up
+          rm temp_changelog.md
+          
+          # Set for next step
+          echo "NEW_VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+      - name: Commit, Tag, and Release
+        if: steps.check.outputs.graduate == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          git add README.md docs/specification.md CHANGELOG.md
+          git commit -m "chore(release): auto-graduate to stable -s"
+          
+          # Push commit
+          git push origin main
+          
+          # Create Tag
+          git tag -a v$NEW_VERSION -m "Release v$NEW_VERSION: Auto-Graduated to Stable"
+          git push origin v$NEW_VERSION
+          
+          # Create GitHub Release
+          gh release create v$NEW_VERSION --title "v$NEW_VERSION: Auto-Graduated to Stable" --notes "The Backlog Schema has successfully completed a 7-day Beta Supported validation period with zero modifications and has automatically graduated to Stable (\`-s\`)."
