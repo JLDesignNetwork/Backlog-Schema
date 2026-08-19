@@ -32,16 +32,14 @@ For large rulesets and software repositories, tasks are stored in companion JSON
 
 ---
 
-## 3. Unified `[DOMAIN]-[TYPE]-[NN]` Taxonomy
+## 3. Unified `[DOMAIN]-[KIND]-[NN]` Taxonomy
 
 Every task adheres to the standard prefix taxonomy:
-- **Domains:**
-  - `PROJ` → Project-level milestones, CI/CD, and repository infrastructure.
-  - `DOCS` → Ruleset mechanics, balance formulas, lore, and audit findings.
-  - `BOOK` → Book layout, typography, CSS paged media, and PDF rendering.
-  - `WEB` → Next.js web applications, parsing, and TypeScript libraries.
-  - `EXT` → Pulsar IDE plugins, editor extensions, and MCP tool servers.
-- **Types:**
+- **Domains:** Must be 3-5 uppercase letters. Must never match a `Kind`.
+  - `PROJ` → Universal: Project-level milestones, CI/CD, and repository infrastructure.
+  - `DOCS` → Universal: Internal `docs/` wiki rules, mechanics, and documentation.
+  - *Custom Domains:* Developers must define 3-5 letter custom domains for their project's internal architecture (e.g. `AUTH`, `COMB`, `LORE`).
+- **Kinds:**
   - `TODO` → Actionable engineering and writing tasks.
   - `IDEA` → Conceptual proposals and architectural designs.
   - `ISSUE` → Tracked defects, regressions, and security advisories.
@@ -69,7 +67,7 @@ Every task adheres to the standard prefix taxonomy:
 ```
 
 ### Property Definitions
-* **`id` (String, Required):** Standard taxonomy string (`[DOMAIN]-[TYPE]-[NN]` or legacy `TODO-[NN]`). Scalable up to 4 digits (`\d{2,4}`). Supports single-letter sub-tasks (`.1a` to `.1z`).
+* **`id` (String, Required):** Standard taxonomy string (`[DOMAIN]-[KIND]-[NN]` or legacy `TODO-[NN]`). Scalable up to 4 digits (`\d{2,4}`). Supports single-letter sub-tasks (`.1a` to `.1z`).
 * **`title` (String, Required):** Short imperative summary (minimum 5 characters).
 * **`status` (String, Required):** Valid lifecycle state slug matching the 11-state matrix.
 * **`priority` (String, Required):** Granular 3-tier sub-priority (`critical-1` to `low-3`) or legacy tier (`critical`, `high`, `medium`, `low`).
@@ -107,5 +105,5 @@ Every task adheres to the standard prefix taxonomy:
 - **Status:** `^(pending|in-progress|pending:review|in-progress:review|pending:audit|in-progress:audit|pending:refactor|in-progress:refactor|completed|blocked|deprecated)$`
 - **Priority:** `^(critical|high|medium|low)(-[1-3])?$`
 - **Protection:** `^(protected|open)$`
-- **Taxonomy ID:** `^([A-Z]{3,4}-(TODO|IDEA|ISSUE)-\d{2,4}|TODO-\d{2,4})(\.\d+[a-z])?$`
+- **Taxonomy ID:** `^([A-Z]{3,5}-(TODO|IDEA|ISSUE)-\d{2,4}|TODO-\d{2,4})(\.\d+[a-z])?$`
 - **GVS Version:** `^\d{4}\.\d+\.\d+-(a|as|b|bs|l|s|ts|z)$`

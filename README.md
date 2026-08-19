@@ -1,3 +1,16 @@
+---
+{
+  "metadata": {
+    "author": "Jeff Langdon",
+    "rulesetName": "JLDN Backlog Schema",
+    "type": "ruleset",
+    "platform": "github:public",
+    "version": "2608.18.0-as",
+    "backlog": ".dev/backlog.json",
+    "changelog": "CHANGELOG.md"
+  }
+}
+---
 # JLDN Backlog Schema
 
 [![GVS](https://img.shields.io/badge/GVS-2608.18.0--as-purple?style=flat-square)](https://github.com/JLDesignNetwork/Backlog-Schema)
@@ -29,7 +42,7 @@ The **JLDN Backlog Schema** is the standardized, document-bound and repository-b
 
 ## Core Features
 
-- **Unified Taxonomy Architecture:** Standardized `([DOMAIN]-[TYPE]-[NN])` schema (`PROJ`, `DOCS`, `BOOK`, `WEB`, `EXT`).
+- **Unified Taxonomy Architecture:** Standardized `([DOMAIN]-[KIND]-[NN])` schema (e.g., `PROJ`, `DOCS`, `CORE`).
 - **Dual Storage Modes:** Supports Mode 1 (Embedded Inline Frontmatter) and Mode 2 (Generational `.dev/` Hub Pattern).
 - **Phase-Aware Lifecycle:** 11-state modular task matrix (`pending`, `in-progress:audit`, `completed`, `blocked`, `deprecated`).
 - **Acyclic Relational Lineage:** Vertical ancestry (`child_of`) and horizontal association (`relates_to`, `prerequisite`).
