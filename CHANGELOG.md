@@ -5,6 +5,12 @@ All notable changes to the **JLDN Backlog Schema Specification** will be documen
 The format is based on [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to the [JLDN Generational Versioning Schema (GVS)](https://github.com/JLDesignNetwork/Generational-Versioning-Schema).
 
+## [2608.20.0-bs] - 2026-08-20
+
+### Changed
+- **Domain Declarations**: Deprecated the `PROJ` universal domain to eliminate taxonomy collisions with actual project code. Codified `ROOT` as the strict universal domain for cross-generational repository infrastructure.
+- **Generational Domains**: Formalized the use of 3-letter alphanumeric codes (e.g., `G08`, `GEN`) for tracking generation-specific infrastructure tasks in generational backlogs.
+
 ## [2608.19.1-bs] - 2026-08-19
 
 ### Changed
