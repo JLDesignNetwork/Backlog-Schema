@@ -3,7 +3,7 @@
 > **Document:** `docs/specification.md`  
 > **Author:** Jeff Langdon (JL Design Network)  
 > **Standard:** JLDN Task & Backlog Management Protocol  
-> **Version:** `2608.19.1-bs`  
+> **Version:** `2608.21.0-bs`  
 
 ---
 
@@ -35,10 +35,10 @@ For large rulesets and software repositories, tasks are stored in companion JSON
 ## 3. Unified `[DOMAIN]-[KIND]-[NN]` Taxonomy
 
 Every task adheres to the standard prefix taxonomy:
-- **Domains:** Must be 3-5 uppercase letters. Must never match a `Kind`.
-  - `PROJ` → Universal: Project-level milestones, CI/CD, and repository infrastructure.
+- **Domains:** Must be 3-5 uppercase alphanumeric characters. Must never match a `Kind`.
+  - `ROOT` → Universal: Project-level milestones, CI/CD, and repository infrastructure.
   - `DOCS` → Universal: Internal `docs/` wiki rules, mechanics, and documentation.
-  - *Custom Domains:* Developers must define 3-5 letter custom domains for their project's internal architecture (e.g. `AUTH`, `COMB`, `LORE`).
+  - *Custom Domains:* Developers must define 3-5 character custom domains for their project's internal architecture or generational scope (e.g. `AUTH`, `COMB`, `G08`).
 - **Kinds:**
   - `TODO` → Actionable engineering and writing tasks.
   - `IDEA` → Conceptual proposals and architectural designs.
@@ -50,7 +50,7 @@ Every task adheres to the standard prefix taxonomy:
 
 ```json
 {
-  "id": "PROJ-TODO-01",
+  "id": "ROOT-TODO-01",
   "title": "Short Concise Task Title",
   "status": "in-progress:audit",
   "priority": "high-1",
@@ -60,9 +60,13 @@ Every task adheres to the standard prefix taxonomy:
   "created_at": "2026-08-03T12:00:00+02:00",
   "owner": "Agent-Alpha/Jeff",
   "reason": "Explanation required whenever status is blocked or deprecated.",
-  "child_of": "PROJ-TODO-00",
-  "prerequisite": "PROJ-TODO-00.1a",
-  "relates_to": "PROJ-TODO-00"
+  "child_of": "ROOT-TODO-00",
+  "prerequisite": "ROOT-TODO-00.1a",
+  "relates_to": "ROOT-TODO-00",
+  "target_files": [
+    "docs/specification.md",
+    "CHANGELOG.md"
+  ]
 }
 ```
 
@@ -79,6 +83,8 @@ Every task adheres to the standard prefix taxonomy:
 * **`child_of` (String, Optional):** Direct vertical parent task ID establishing a strict DAG.
 * **`prerequisite` (String, Optional):** Prerequisite task ID that must reach terminal state before activation.
 * **`relates_to` (String, Optional):** Horizontal context association.
+* **`target_files` (Array of Strings, Optional):** Localized file tracking for isolated environments without git dependency.
+* **`target_version` / `target_component` / `target_repository` (String, Optional):** Optional pointers to eliminate cross-project reference ambiguity.
 
 ---
 
@@ -105,5 +111,5 @@ Every task adheres to the standard prefix taxonomy:
 - **Status:** `^(pending|in-progress|pending:review|in-progress:review|pending:audit|in-progress:audit|pending:refactor|in-progress:refactor|completed|blocked|deprecated)$`
 - **Priority:** `^(critical|high|medium|low)(-[1-3])?$`
 - **Protection:** `^(protected|open)$`
-- **Taxonomy ID:** `^([A-Z]{3,5}-(TODO|IDEA|ISSUE)-\d{2,4}|TODO-\d{2,4})(\.\d+[a-z])?$`
+- **Taxonomy ID:** `^([A-Z0-9]{3,5}-(TODO|IDEA|ISSUE)-\d{2,4}|TODO-\d{2,4})(\.\d+[a-z])?$`
 - **GVS Version:** `^\d{4}\.\d+\.\d+-(a|as|b|bs|l|s|ts|z)$`

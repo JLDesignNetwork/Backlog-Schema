@@ -28,5 +28,41 @@
     "existed_since": "2608.20.0-bs",
     "created_at": "2026-08-20T11:45:00+02:00",
     "details": "Deprecate PROJ domain to eliminate taxonomy collision. Codified ROOT as universal domain and [GEN] (e.g. G08) for generation-specific infrastructure tasks."
+  },
+  {
+    "id": "ROOT-ISSUE-01",
+    "title": "Red Team: Taxonomy Regex Rejects Alphanumeric Domains",
+    "status": "completed",
+    "priority": "high-1",
+    "protection": "protected",
+    "created_at": "2026-08-20T12:00:00+02:00",
+    "details": "The taxonomy ID validation regex in docs/specification.md strictly enforces [A-Z], which rejects newly adopted alphanumeric generation domains (e.g., G08). Update regex to [A-Z0-9] support.",
+    "target_files": [
+      "docs/specification.md"
+    ]
+  },
+  {
+    "id": "ROOT-ISSUE-02",
+    "title": "White Team: Source of Truth Parity Break on PROJ Domain",
+    "status": "completed",
+    "priority": "high-2",
+    "protection": "protected",
+    "created_at": "2026-08-20T12:00:00+02:00",
+    "details": "The docs/specification.md file still declares PROJ as the universal domain and uses it in JSON examples, violating the newly enacted ROOT & [GEN] rule. Update all documentation references to align with the active schema.",
+    "target_files": [
+      "docs/specification.md"
+    ]
+  },
+  {
+    "id": "ROOT-TODO-04",
+    "title": "Deprecate target_file string for target_files array",
+    "status": "completed",
+    "priority": "medium-1",
+    "protection": "protected",
+    "created_at": "2026-08-20T12:00:00+02:00",
+    "details": "Deprecate the singular target_file key in favor of a target_files JSON array. This array tracks localized modifications by file path without recording brittle line numbers, providing forensic tracking for non-git environments.",
+    "target_files": [
+      "docs/specification.md"
+    ]
   }
 ]

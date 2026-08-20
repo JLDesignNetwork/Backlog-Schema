@@ -5,6 +5,18 @@ All notable changes to the **JLDN Backlog Schema Specification** will be documen
 The format is based on [Keep a Changelog 1.1.0](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to the [JLDN Generational Versioning Schema (GVS)](https://github.com/JLDesignNetwork/Generational-Versioning-Schema).
 
+## [2608.21.0-bs] - 2026-08-20
+
+### Changed
+- **Taxonomy Validation Regex**: Updated the `Taxonomy ID` validation regex to `^([A-Z0-9]{3,5}-...)` to officially support alphanumeric generation domains like `G08`.
+- **Domain Declarations**: Updated documentation and JSON schemas to reflect the migration from `PROJ` to the new `ROOT` universal domain, ensuring Source of Truth parity.
+
+### Deprecated
+- **Target File Tracking**: Deprecated the singular `target_file` metadata key in favor of the new `target_files` array.
+
+### Added
+- **Target Files Array**: Codified the `target_files` string array property for robust, Git-independent tracking of localized file modifications without line-number drift.
+
 ## [2608.20.1-bs] - 2026-08-20
 
 ### Fixed

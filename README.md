@@ -5,7 +5,7 @@
     "rulesetName": "JLDN Backlog Schema",
     "type": "ruleset",
     "platform": "github:public",
-    "version": "2608.20.1-bs",
+    "version": "2608.21.0-bs",
     "backlog": ".dev/backlog.json",
     "changelog": "CHANGELOG.md"
   }
@@ -13,11 +13,11 @@
 ---
 # JLDN Backlog Schema
 
-[![GVS](https://img.shields.io/badge/GVS-2608.20.1--bs-purple?style=flat-square)](https://github.com/JLDesignNetwork/Backlog-Schema)
+[![GVS](https://img.shields.io/badge/GVS-2608.21.0--bs-purple?style=flat-square)](https://github.com/JLDesignNetwork/Backlog-Schema)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/jldesignnetwork)
 
-Welcome to the **JLDN Backlog Schema** specification repository (JLDN Generational Versioning Schema: `2608.20.1-bs`).
+Welcome to the **JLDN Backlog Schema** specification repository (JLDN Generational Versioning Schema: `2608.21.0-bs`).
 
 ---
 
@@ -26,7 +26,7 @@ Welcome to the **JLDN Backlog Schema** specification repository (JLDN Generation
 The **JLDN Backlog Schema** is the standardized, document-bound and repository-bound task management protocol governing all JLDN software, technical specifications, publishing pipelines, and developer tooling.
 
 * **Author:** Jeff Langdon (JL Design Network)
-* **Schema Version:** `2608.20.1-bs` (Beta Supported)
+* **Schema Version:** `2608.21.0-bs` (Beta Supported)
 * **Active Generation:** `2608`
 
 ---
