@@ -17,6 +17,7 @@
     "protection": "protected",
     "existed_since": "2608.19.0-as",
     "created_at": "2026-08-19T23:20:00+02:00",
+    "details": "Eliminated terminology overlaps by explicitly separating Type, Domain, Kind, Scope, Action, and Category. Replaced [TYPE] with [KIND] in task IDs and set PROJ and DOCS as universal domains."
   },
   {
     "id": "ROOT-TODO-03",
